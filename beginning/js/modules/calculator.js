@@ -1,5 +1,5 @@
 // ADD A PRIVATE FUNCTION CALLED CALCULATE
-let calculate = 'The result of the numbers is:';
+let calculate = 'The result of the calculation is:';
 
 // ADD FOUR PUBLIC FUNCTIONS BELOW
 
@@ -16,7 +16,7 @@ export const substract = (x, y) => {
 };
 
 // MULTIPLY FUNCTION
-export const multipy = (x, y) => {
+export const multiply = (x, y) => {
     let result= x * y;
     return `${calculate} ${result}`;
 };
