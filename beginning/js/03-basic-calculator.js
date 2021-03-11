@@ -10,8 +10,8 @@ function playGame() {
         let num1 = parseInt(prompt('Input a number:'));
         let num2 = parseInt(prompt('Input a second number:'));
         let operator = prompt('Which operator would you like to use? (add, substract, multiply, or divide)');
-        // console.log(calc.add(num1, num2));
         // CHECK TO SEE WHAT OPERATION THEY'RE USING
+
         switch(operator) {
             case "add":
                 alert(calc.add(num1, num2));
@@ -34,18 +34,14 @@ function playGame() {
                 tryAgain = true;
         }
     } while (tryAgain);
-    // alert('here you go and let\'s input numbers again.');
 }
 function main() {
     let playAgain = "y";
     while (playAgain === "y") {
         playGame();
-        playAgain = window.prompt('Do you want to calculate again, y / n?').trim().toLowerCase();
+        playAgain = window.prompt('Do you want to calculate again, y / n?');
     }
-    window.alert('Thank you playing.');
+    window.alert('Thank you for playing.');
 }
-
-
-
 // CALL THE APPROPRIATE FUNCTION
 main();
