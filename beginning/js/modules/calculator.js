@@ -28,3 +28,4 @@ export const divide = (x, y) => {
 };
 
 // EXPORT THE FOUR PUBLIC FUNCTIONS
+// functions are already exported, unsure of this comment
