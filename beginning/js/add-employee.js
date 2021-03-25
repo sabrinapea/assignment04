@@ -16,9 +16,6 @@ window.addEventListener('load', () => {
     const $ = (id) => {
         return document.getElementById(id);
     }
-    // document.getElementById('btnAddEmployee').addEventListener('click', () => {
-    //    let output = window.opener.document.getElementById('LoginDetails');
-    //    output.innerHTML = "hello world";
     
 // HANDLE THE CANCEL BUTTON. WHEN THE USER CLICKS THIS BUTTON, CLOSE THE WINDOW
         $('cancel').addEventListener('click', cancel);
