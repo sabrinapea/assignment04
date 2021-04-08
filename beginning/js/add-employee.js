@@ -1,6 +1,6 @@
 // HANDLE THE LOAD EVENT OF THE WINDOW
 
-window.addEventListener('load', () => {
+window.addEventListener('load', () => { // when its call, it loads the below
 
 // SET WIDTH AND HEIGHT VARIABLES TO 800 x 700
     let width = 800;
@@ -10,46 +10,46 @@ window.addEventListener('load', () => {
     window.resizeTo(width, height);
 
 // MOVE THE POPUP TO THE MIDDLE OF THE SCREEN
-    window.moveTo(((window.screen.width - width) / 2), ((window.screen.height - height) / 2));
+    window.moveTo((window.screen.width - width) / 2, (window.screen.height - height) / 2);
 
 // CREATE A HELPER FUNCTION TO RETRIEVE THE HTML ELEMENTS FROM THE DOM
     const $ = (id) => {
         return document.getElementById(id);
-    }
+    };
     
 // HANDLE THE CANCEL BUTTON. WHEN THE USER CLICKS THIS BUTTON, CLOSE THE WINDOW
-        $('cancel').addEventListener('click', cancel);
-        window.close();
-    });
-
+    $('cancel').addEventListener('click', () => window.close());
+          
 // HANDLE THE SUBMISSION OF THE FORM AND THEN IMMEDIATELY PREVENT THE (SUBMISSION)
-        $('submit').addEventListener('click', submit);
+    $('empForm').addEventListener('submit', (e) => {
         e.preventDefault(e);
 
 // CREATE 5 VARIABLES FOR ID, NAME, EXT, EMAIL, AND DEPT    
-    let id = document.getElementById('id').value;
-    let name = document.getElementById('name').value;
-    let ext = document.getElementById('extension').value;
-    let email = document.getElementById('email').value;
-    let dept = document.getElementById('department').value; 
-
 // SET THOSE VARIABLES TO WHATEVER THE USER ENTERS INTO THE FORM ELEMENTS
-    function displayForm(e) {
-
-    };
+    let id =    `ID: ${$('id').value}`;
+    let name =  `Name: ${$('name').value}`;
+    let ext =   `Extension: ${$('extension').value}`;
+    let email = `Email: ${$('email').value}`;
+    let dept =  `Department: ${$('department').value}`; 
+  
 // GET THE LOGINDETAILS OUTPUT ELEMENT FROM THE PARENT PAGE
-    let parentoutput = window.opener.document.getElementById('loginDetails');
+    let parent = window.opener.document.querySelector('#loginDetails');
+
 
 
 // SET THE TEXT OF THE LOGINDETAILS ELEMENT TO THE ABOVE SET VARIABLES
-    parentoutput.innerHTML = `<br><br>Id: ${$('id').value}<br>`;
-    parentoutput.innerHTML = `<br><br>Name: ${$('name').value}<br>`;
-    parentoutput.innerHTML = `<br><br>Extension: ${$('extension').value}<br>`;
-    parentoutput.innerHTML = `<br><br>Email: ${$('email').value}<br>`;
-    parentoutput.innerHTML = `<br><br>:Department${$('department').value}<br>`;
+    parent.innerHTML = 
+    `
+    
+        ${id} <br>
+        ${name} <br>
+        ${ext} <br>
+        ${email}<br>
+        ${depart} 
+    `
 
 // CLOSE THE POPUP
     window.close();
-
+    });
+});
 // THE DATA SHOULD SHOW ON THE INDEX.HTML PAGE
-$('m-3').addEventListener('submit', displayForm);

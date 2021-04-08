@@ -6,6 +6,6 @@ window.addEventListener('load', () => {
     document.getElementById('btnAddEmployee').addEventListener('click', () => {
 // OPEN THE ADD-EMPLOYEE.HTML PAGE WITHIN A POPUP
 
-    window.open('add-employee.html', '', 'width=800, height=700');
+    window.open('add-employee.html', '', 'width=800, height=600');
     });
 });
