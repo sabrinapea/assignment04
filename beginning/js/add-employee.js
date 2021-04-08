@@ -1,6 +1,5 @@
 // HANDLE THE LOAD EVENT OF THE WINDOW
-
-window.addEventListener('load', () => { // when its call, it loads the below
+window.addEventListener('load', (e) => { // when its call, it loads the below
 
 // SET WIDTH AND HEIGHT VARIABLES TO 800 x 700
     let width = 800;
@@ -10,7 +9,7 @@ window.addEventListener('load', () => { // when its call, it loads the below
     window.resizeTo(width, height);
 
 // MOVE THE POPUP TO THE MIDDLE OF THE SCREEN
-    window.moveTo((window.screen.width - width) / 2, (window.screen.height - height) / 2);
+    window.moveTo(((window.screen.width - width) / 2), ((window.screen.height - height) / 2));
 
 // CREATE A HELPER FUNCTION TO RETRIEVE THE HTML ELEMENTS FROM THE DOM
     const $ = (id) => {
@@ -18,11 +17,14 @@ window.addEventListener('load', () => { // when its call, it loads the below
     };
     
 // HANDLE THE CANCEL BUTTON. WHEN THE USER CLICKS THIS BUTTON, CLOSE THE WINDOW
-    $('cancel').addEventListener('click', () => window.close());
+    $('cancel').addEventListener('click', () => {
+        window.close();
+    });
+    
           
 // HANDLE THE SUBMISSION OF THE FORM AND THEN IMMEDIATELY PREVENT THE (SUBMISSION)
     $('empForm').addEventListener('submit', (e) => {
-        e.preventDefault(e);
+        e.preventDefault();
 
 // CREATE 5 VARIABLES FOR ID, NAME, EXT, EMAIL, AND DEPT    
 // SET THOSE VARIABLES TO WHATEVER THE USER ENTERS INTO THE FORM ELEMENTS
@@ -33,23 +35,20 @@ window.addEventListener('load', () => { // when its call, it loads the below
     let dept =  `Department: ${$('department').value}`; 
   
 // GET THE LOGINDETAILS OUTPUT ELEMENT FROM THE PARENT PAGE
-    let parent = window.opener.document.querySelector('#loginDetails');
-
-
+    let parent = window.opener.document.getElementById('loginDetails');
 
 // SET THE TEXT OF THE LOGINDETAILS ELEMENT TO THE ABOVE SET VARIABLES
     parent.innerHTML = 
     `
-    
         ${id} <br>
         ${name} <br>
         ${ext} <br>
         ${email}<br>
-        ${depart} 
-    `
+        ${dept} 
+    `;
 
 // CLOSE THE POPUP
-    window.close();
+        window.close();
     });
 });
 // THE DATA SHOULD SHOW ON THE INDEX.HTML PAGE
